@@ -1,7 +1,7 @@
 {
-  "name": "register",
+  "name": "register_psu",
   "version": "1.1.1",
-  "description": "register: An Ionic project",
+  "description": "register_psu: An Ionic project",
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-concat": "^2.2.0",
