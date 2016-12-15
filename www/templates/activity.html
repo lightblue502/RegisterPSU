@@ -1,0 +1,15 @@
+<ion-view title="Activity" >
+  <!-- <ion-nav-buttons side="right" class="has-header">
+    <button class="button button-icon icon ion-android-add" ui-sref="activity_create"
+    ></button>
+  </ion-nav-buttons> -->
+  <ion-content padding="true" class="has-header">
+  	
+  	<ul ng-repeat="activity in activities">
+  		<li>
+  			<button ui-sref="tabsController.activityDetail({id : {{activity.id}}})"> {{activity.title}} -- {{activity.date}} </button>
+  		</li>
+  	</ul>
+
+  </ion-content>
+</ion-view>

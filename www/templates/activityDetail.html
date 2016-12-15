@@ -1,0 +1,30 @@
+<ion-view title="{{title}}">
+
+<!--   <ion-nav-buttons side="right" class="has-header">
+    <button class="button button-icon icon ion-android-upload"></button>
+  </ion-nav-buttons> -->
+<!--    <ion-nav-back-button class="button-clear"
+    ng-click="myGoBack()">
+    <i class="ion-arrow-left-c"></i> Back
+  </ion-nav-back-button> -->
+
+  <ion-content padding="true" class="has-header">
+  		
+      <ui-select multiple limit="3" theme="bootstrap" tagging="detail.tagTransform" tagging-label="(custom 'new' label)" ng-model="detail.selected" title="Register">
+        <ui-select-match placeholder="Search...">{{$item.code}}</ui-select-match>
+        <ui-select-choices repeat="item in registors | filter: $select.search">
+          <div ng-bind-html="item.code | highlight: $select.search"></div>
+          <small ng-bind-html="item.name | highlight: $select.search"></small>
+        </ui-select-choices>
+      </ui-select>
+
+  		<div ng-repeat="candidate in candidates"> 
+  			{{candidate.code}} -- {{candidate.date}}
+  		</div>
+
+      <button ng-click="register(selected)">Register</button>
+      <button ng-click="registByCode2d()">Camera</button>
+
+  </ion-content>
+</ion-view>
+
