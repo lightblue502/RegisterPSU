@@ -69,7 +69,8 @@ angular.module('app.routes', ['ionicUIRouter'])
     views: {
       'tab-report': {
           templateUrl: 'templates/report.html',
-          controller: 'reportCtrl'
+          controller: 'reportCtrl',
+          controllerAs : 'r'
       }
     }
   })

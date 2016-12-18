@@ -45,5 +45,18 @@ module.value('Mock', {
             {code : "5610110222", name : "Micheal Johnson"},
          ] 
       },
+      {
+         id: 4,
+         pin : "1234",
+         title: "COE plusssss",
+         date: moment('25-02-2016', 'DD-MM-yy').format(),
+         candidates : [],
+         registors :[
+            {code : "5610110206", name : "Thanaporn Nuhwilai"},
+            {code : "5610110456", name : "Lucika Losuvalna"},
+            {code : "5610110123", name : "John Doe"},
+            {code : "5610110222", name : "Micheal Johnson"},
+         ] 
+      }
    ]
 })
