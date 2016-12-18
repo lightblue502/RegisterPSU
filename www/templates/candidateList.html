@@ -1,0 +1,18 @@
+<ion-view title="รายชื่อผู้เข้าร่วมกิจกรรม">
+  <ion-content padding="true" class="has-header">
+  	<div class="row">
+  		<div class="col text-center">วันเวลา</div>
+        <div class="col text-center">รหัสนักศึกษา</div>
+        <div class="col text-center">ชื่อ-สกุล</div>
+    </div>
+  	<div class="row" ng-repeat="candidate in candidates">
+         <div class="col text-center">{{candidate.date | date:"dd/MM/yy HH:mm"}}</div>
+         <div class="col text-center">{{candidate.code}}</div>
+         <div class="col text-center">{{candidate.name}}</div>
+         <button ng-click="delete(candidate.code)" class="button button-icon ion-minus-circled"></button>
+  	</div>
+
+  	<button ng-click="update()" class="button button-balanced button-block">Update</button>
+
+  </ion-content>
+</ion-view>

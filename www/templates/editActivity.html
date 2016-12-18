@@ -1,20 +1,21 @@
-<ion-view title="สร้างกิจกรรม">
-  <ion-content padding="true" class="has-header" >
-  	  <div class="item item-divider"><strong>กิจกรรม</strong></div>
+<ion-view title="เปลี่ยนชื่อกิจกรรม">
+  <ion-content padding="true" class="has-header">
+  		
+      <div class="item item-divider"><strong>กิจกรรม</strong></div>
       <label class="item item-input">
         <input type="text" ng-model="activity.title" placeholder="ชื่อกิจกรรม">
       </label>
 
-      <label class="item item-input">
+  		<label class="item item-input">
         <input type="date" ng-model="activity.date" placeholder="วันที่">
       </label>
-      
+
       <div class="item item-divider">
         <strong>เพิ่มรายชื่อ</strong>
         <button ng-click="addRegistor()" class="button button-icon ion-plus-circled pull-right" 
           style="min-height: 20px;line-height: 20px;"></button>
       </div>
-      <label class="item item-input">
+  		<label class="item item-input">
         <input type="text" ng-model="registor.code" placeholder="รหัสนักศึกษา">
       </label>
 
@@ -22,25 +23,13 @@
         <input type="text" ng-model="registor.name" placeholder="ชื่อ-สกุล">
       </label>
 
-       <div class="item item-divider"><strong>รายชื่อ</strong></div>
-       <div class="row" ng-show="activity.registors.length > 0">
-          <div class="col text-center">รหัสนักศึกษา</div>
-          <div class="col text-center">ชื่อ</div>
-       </div>
       <div class="row" ng-repeat="registor in activity.registors">
         <div class="col text-center">{{registor.code}}</div> <div class="col text-center">{{registor.name}}</div>
         <button ng-click="delRegistor(registor.code)" class="button button-icon ion-minus-circled"></button>
       </div>
 
-      <div class="item item-divider"><strong>PIN-Code</strong></div>
-      <label class="item item-input">
-        <input type="password" ng-model="c.pin" placeholder="****">
-      </label>
-      <label class="item item-input">
-        <input type="password" ng-model="c.pinConfirm" placeholder="****">
-      </label>
+  		<button ng-click="edit()" class="button button-balanced button-block">ยืนยัน</button>
 
-
-      <button ng-click="create(activity)" class="button button-balanced button-block">สร้างกิจกรรม</button>
   </ion-content>
 </ion-view>
+

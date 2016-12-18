@@ -29,6 +29,19 @@ angular.module('app.routes', ['ionicUIRouter'])
   .state('tabsController', {
     url: '/tab',
     templateUrl: 'templates/tabsController.html',
+    controller: function($scope, $state){
+      $scope.tabActivity = function(){
+        $state.go('tabsController.activity')
+      }
+
+      $scope.tabCreate = function(){
+        $state.go('tabsController.createActivity')
+      }
+
+      $scope.tabReport = function(){
+        $state.go('tabsController.report')
+      }
+    },
     abstract:true
   })
 

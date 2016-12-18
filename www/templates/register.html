@@ -1,19 +1,37 @@
-<ion-view title="{{title}}">
+<ion-view title="ลงทะเบียนกิจกรรม">
   <ion-content padding="true" class="has-header">
   		<ui-select multiple limit="3" theme="bootstrap" tagging="regist.tagTransform" tagging-label="(custom 'new' label)" ng-model="regist.selected" title="Register">
-	        <ui-select-match placeholder="Search...">{{$item.code}}</ui-select-match>
+	        <ui-select-match placeholder="&#x2315; Search...">{{$item.code}}</ui-select-match>
+          <i class="icon ion-search placeholder-icon"></i>
 	        <ui-select-choices repeat="item in registors | filter: $select.search">
 	          <div ng-bind-html="item.code | highlight: $select.search"></div>
 	          <small ng-bind-html="item.name | highlight: $select.search"></small>
 	        </ui-select-choices>
-      	</ui-select>
+      </ui-select>
+      
 
-  		<div ng-repeat="candidate in candidates"> 
-  			{{candidate.code}} -- {{candidate.date}}
-  		</div>
+  		<!-- <div class="item item-body" ng-repeat="candidate in candidates">
+          <div id="page6-markdown4" class="show-list-numbers-and-dots">
+              <p style="margin-top:0px;color:#000000;">{{candidate.code}} -- {{candidate.date}}
+              </p>
+          </div>
+      </div> -->
+      <div class="row">
+          <div class="col text-right">
+              <button class="button button-positive" ng-click="register(selected)">ลงทะเบียน</button>
+          </div>
+          <div class="col text-left">
+              <button class="button button-balanced icon ion-camera" ng-click="registByCode2d()">  กล้อง</button>
+          </div>
+      </div>
 
-      <button ng-click="register(selected)">Register</button>
-      <button ng-click="registByCode2d()">Camera</button>
+      <div class="row" ng-repeat="candidate in candidates | orderBy:'-date'">
+          <div class="col text-center">{{candidate.code}}</div>
+          <div class="col text-center" >{{candidate.date | date:"dd/MM/yy | HH:mm"}}</div>
+      </div>
+
+      
+      
 
   </ion-content>
 </ion-view>
