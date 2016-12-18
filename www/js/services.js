@@ -4,11 +4,12 @@ angular.module('app.services', ['app.mocks'])
   let activities = Mock.activities;
 
 	return {
-    create: function(activity){
+    create: function(activity, callback){
       let maxId = _.maxBy(activities, 'id').id;
       activity.id = maxId + 1;
       activity.candidates = [];
       Mock.activities.push(activity);
+      callback();
     },
     all: function() {
       return activities;

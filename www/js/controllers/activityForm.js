@@ -49,12 +49,15 @@ function ($scope, $stateParams, Activity, $window, $state, $ionicHistory) {
 	$scope.create = function(activity){
 		if(confirm("Create This Activity ?!")){
 			if(__validatePin()){
-				Activity.create(activity);
-				alert("Create Success!!");
-				$ionicHistory.nextViewOptions({
-				    disableBack: true
+				activity.pin = self.pin;
+				Activity.create(activity, function(){
+					alert("Create Success!!");
+					$ionicHistory.nextViewOptions({
+					    disableBack: true
+					});
+					$state.go('tabsController.activity')
 				});
-				$state.go('tabsController.activity')
+				
 			}else{
 				alert("PIN not match!!")
 			}

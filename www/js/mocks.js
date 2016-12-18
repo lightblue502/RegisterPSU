@@ -67,7 +67,7 @@ module.value('Mock', {
       },
       {
          id: 5,
-         pin : "1234",
+         pin : "12345",
          title: "กิจกรรมทำความสะอาด",
          date:  moment('01-02-2016', 'DD-MM-yy').format(),
          candidates : [],
