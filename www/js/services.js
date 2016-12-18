@@ -20,7 +20,11 @@ angular.module('app.services', ['app.mocks'])
    
       activities = _.map(activities, function(activity){
         if(activity.id == activityId){
-          if(_.isArray(data)){
+          
+          console.log("_.isArray(data)", _.isArray(data));
+          console.log("activity", activity);
+
+          if(key === 'all'){
             activity = data;
           }else{
             activity[key] = data;
