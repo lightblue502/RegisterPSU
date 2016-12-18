@@ -4,6 +4,12 @@ angular.module('app.services', ['app.mocks'])
   let activities = Mock.activities;
 
 	return {
+    create: function(activity){
+      let maxId = _.maxBy(activities, 'id').id;
+      activity.id = maxId + 1;
+      activity.candidates = [];
+      Mock.activities.push(activity);
+    },
     all: function() {
       return activities;
     },
@@ -13,10 +19,17 @@ angular.module('app.services', ['app.mocks'])
     update: function(activityId, key, data){
       activities = _.map(activities, function(activity){
         if(activity.id == activityId){
-          activity[key] = data;
+          console.log("typeof data " , typeof data)
+          if(typeof data == 'object'){
+            activity = data;
+          }else{
+            activity[key] = data;
+          }
         }
         return activity;
       });
+
+      console.log(activities)
     },
     get: function(activityId) {
       return _.find(activities, function(activity){

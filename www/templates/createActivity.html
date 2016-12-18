@@ -1,6 +1,31 @@
 <ion-view title="Create Activity">
   <ion-content padding="true" class="has-header" >
-  	create
+  	
+  		<p>title : </p>
+  		<input type="text" ng-model="activity.title">
+  		<p>date :</p>
+  		<input type="date" ng-model="activity.date">
 
+
+  		<b>registors</b>
+
+  		<p>code </p> 
+  		<input type="text" ng-model="registor.code">
+
+  		<p>name </p>
+  		<input type="text" ng-model="registor.name">
+
+  		<button ng-click="addRegistor()"> add register</button>
+
+  		<b>resgister</b>
+  		<p ng-repeat="registor in activity.registors">
+  			{{registor.code}} -- {{registor.name}} <button ng-click="delRegistor(registor.code)">x {{registor.code}}</button>
+  		</p>
+
+  		<b>pin</b>
+  		<input type="password" ng-model="c.pin">
+  		<input type="password" ng-model="c.pinConfirm">
+
+  		<button ng-click="create(activity)">create activity</button>
   </ion-content>
 </ion-view>

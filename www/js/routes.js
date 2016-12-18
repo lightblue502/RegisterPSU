@@ -7,7 +7,7 @@ angular.module('app.routes', ['ionicUIRouter'])
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
   $ionicConfigProvider.views.maxCache(0);
-  $ionicConfigProvider.backButton.text('Go Back').icon('ion-chevron-left');
+  // $ionicConfigProvider.backButton.text('Go Back').icon('ion-chevron-left');
 
   $stateProvider
     
@@ -47,7 +47,19 @@ angular.module('app.routes', ['ionicUIRouter'])
     views: {
       'tab-create': {
         templateUrl: 'templates/createActivity.html',
-        controller: 'createActivityCtrl'
+        controller: 'activityFormCtrl',
+        controllerAs : 'c'
+      }
+    }
+  })
+
+  .state('tabsController.editActivity', {
+    url: '/activity_edit/:id',
+    views: {
+      'tab-activity': {
+        templateUrl: 'templates/editActivity.html',
+        controller: 'activityFormCtrl',
+        controllerAs : 'c'
       }
     }
   })
@@ -73,18 +85,19 @@ angular.module('app.routes', ['ionicUIRouter'])
     }
   })
 
-  .state('register', {
-    url: '/register',
+  .state('tabsController.register', {
+    url: '/register/:id',
     views: {
       'tab-activity': {
         templateUrl: 'templates/register.html',
-        controller: 'registerCtrl'
+        controller: 'registerCtrl',
+        controllerAs : 'regist'
       }
     }
   })
 
-  .state('studentList', {
-    url: '/student_list',
+  .state('tabsController.studentList', {
+    url: '/student_list/:id',
     views: {
       'tab-activity': {
         templateUrl: 'templates/studentList.html',
@@ -93,8 +106,8 @@ angular.module('app.routes', ['ionicUIRouter'])
     }
   })
 
-  .state('setting', {
-    url: '/setting',
+  .state('tabsController.setting', {
+    url: '/setting/:id',
     views: {
       'tab-activity': {
         templateUrl: 'templates/setting.html',
@@ -102,6 +115,7 @@ angular.module('app.routes', ['ionicUIRouter'])
       }
     }
   })
+
 
   $urlRouterProvider.otherwise('/tab/activity')
 

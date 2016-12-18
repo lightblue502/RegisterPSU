@@ -10,20 +10,10 @@
 
   <ion-content padding="true" class="has-header">
   		
-      <ui-select multiple limit="3" theme="bootstrap" tagging="detail.tagTransform" tagging-label="(custom 'new' label)" ng-model="detail.selected" title="Register">
-        <ui-select-match placeholder="Search...">{{$item.code}}</ui-select-match>
-        <ui-select-choices repeat="item in registors | filter: $select.search">
-          <div ng-bind-html="item.code | highlight: $select.search"></div>
-          <small ng-bind-html="item.name | highlight: $select.search"></small>
-        </ui-select-choices>
-      </ui-select>
+      <button ng-click="register()">ลงทะเบียน</button>
+      <button ng-click="studentList()">รายชื่อนักศึกษา</button>
+      <button ng-click="setting()">ตั้งค่า</button>
 
-  		<div ng-repeat="candidate in candidates"> 
-  			{{candidate.code}} -- {{candidate.date}}
-  		</div>
-
-      <button ng-click="register(selected)">Register</button>
-      <button ng-click="registByCode2d()">Camera</button>
 
   </ion-content>
 </ion-view>
