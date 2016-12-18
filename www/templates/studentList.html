@@ -1,10 +1,13 @@
-<ion-view title="Student List" >
+<ion-view title="รายชื่อนักศึกษา" >
   <ion-content padding="true" class="has-header">
-  	
-  	<div ng-repeat="member in members">
-  		{{member.date | date:"dd/MM/yy HH:mm"}} -- {{member.code}} -- {{member.name}} -- {{member.isRegister}}
-  	</div>
+  	<ion-list>
 
+    <a ng-repeat="member in members" class="item item-icon-left">
+    <i class="icon {{member.isRegister?'ion-checkmark':'ion-close'}}"></i>
+    <h2>{{member.code}} {{member.name}}</h2>
+    <p>{{member.date | date:"dd/MM/yy HH:mm"}}</p>
+  	</a>
+  	</ion-list>
   </ion-content>
 
   	
