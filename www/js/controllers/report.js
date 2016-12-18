@@ -79,7 +79,7 @@ function ($scope, $stateParams, Activity, $cordovaFile, $cordovaEmailComposer) {
     		alert("Please choose activity")
     	}
     }
-
+    $scope.date = new Date();
     $scope.exportCSVbyDate = function(date){
     	// console.log(ConvertToCSV(Activity.getByDate(date)))
     	if(date != undefined){
@@ -119,7 +119,7 @@ function ($scope, $stateParams, Activity, $cordovaFile, $cordovaEmailComposer) {
 	
 	$cordovaEmailComposer.isAvailable().then(function() {
 	   	// is available
-		  alert("available");
+		  console.log("available");
 		}, function () {
 		// not available
 		alert("not available");
@@ -134,7 +134,7 @@ function ($scope, $stateParams, Activity, $cordovaFile, $cordovaEmailComposer) {
 				filePath + filename
 			],
 			subject: '[WebApp] CSV',
-			body: 'How are you? Nice greetings from Leipzig',
+			body: 'รายงานสรุปกิจกรรม',
 			isHtml: true
 		};
 		if(sendEmailTo != undefined){

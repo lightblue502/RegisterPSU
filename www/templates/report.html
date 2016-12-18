@@ -1,23 +1,43 @@
-<ion-view title="Report" cache-view="false">
+<ion-view title="รายงาน" cache-view="false">
 	<ion-content padding="true" class="has-header">
-	<ui-select theme="bootstrap" ng-model="r.activity" title="Report">
-        <ui-select-match placeholder="Search...">{{r.activity.title}}</ui-select-match>
+	<div class="item item-divider"><strong>เลือก กิจกรรม</strong></div>
+	<label class="item item-input">
+		<ui-select theme="bootstrap" ng-model="r.activity" title="Report">
+		<ui-select-match placeholder="Search...">{{r.activity.title}}</ui-select-match>
 		    <ui-select-choices repeat="item in activitiesTitle | filter: $select.search">
-	        <small ng-bind-html="item.title | highlight: $select.search"></small>
-	    </ui-select-choices>
-    </ui-select>
-    <button ng-click="exportCSVbyTitle()">Download activity (title)</button>
+		    <small ng-bind-html="item.title | highlight: $select.search"></small>
+		</ui-select-choices>
+		</ui-select>
+	</label>
+	<label class="item item-input">
+		<button class="button button-balanced button-full" ng-click="exportCSVbyTitle()">Download</button>  	
+	</label>
 
-    <input type="date" ng-model="date">
-  	<button ng-click="exportCSVbyDate(date)">Download activity (date)</button>
+	<div class="item item-divider"><strong>เลือก วันของกิจกรรม</strong></div>
+	<label class="item item-input">
+		<input type="date" ng-model="date">
+	</label>
+	<label class="item item-input">
+		<button class="button button-balanced button-full" ng-click="exportCSVbyDate(date)">Download</button>
+	</label>
 
-  	<div style="margin-top: 20px;">
-  	    <input type="text" ng-model="sendEmailTo">
-	  	<button ng-click="sendEmail(sendEmailTo)">Send email</button>
-	</div>
-  	<div style="margin-top: 20px;">
-  		<h1>Download all activity</h1>
-	  	<button ng-click="convertToCSV()">ConvertToCSV</button>
-  	</div>
+	<div class="item item-divider"><strong>ส่ง email</strong></div>
+	<label class="item item-input">
+		<input type="text" ng-model="sendEmailTo">
+	</label>
+	<label class="item item-input">
+		<button class="button button-balanced button-full" ng-click="sendEmail(sendEmailTo)">Send email</button>
+	</label>
+
+	<div class="item item-divider"><strong>Export กิจกรรมทั้งหมด</strong></div>
+	<label class="item item-input">
+		<button class="button button-balanced button-full" ng-click="convertToCSV()">Download all</button>
+	</label>
   </ion-content>
 </ion-view>
+<style type="text/css">
+	.item-input{
+		padding :0px 16px 0px 16px!important;
+	}
+
+</style>
