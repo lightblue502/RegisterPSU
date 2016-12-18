@@ -39,6 +39,14 @@ angular.module('app.services', ['app.mocks'])
       return _.find(activities, function(activity){
         return activity.id == activityId;
       });
+    },
+    getByDate: function(date){
+      var result  = activities.filter(function(activity){
+        return moment(activity.date).isSame(date, 'day')
+      })
+      console.log("result : " , result)
+
+      return result
     }
   };
 })
