@@ -1,0 +1,29 @@
+<ion-view title="{{title}}">
+  <ion-content padding="true" class="has-header">
+  		
+      	<p>title : </p>
+  		<input type="text" ng-model="activity.title">
+  		<p>date :</p>
+  		<input type="date" ng-model="activity.date">
+
+
+  		<b>registors</b>
+
+  		<p>code </p> 
+  		<input type="text" ng-model="registor.code">
+
+  		<p>name </p>
+  		<input type="text" ng-model="registor.name">
+
+  		<button ng-click="addRegistor()"> add register</button>
+
+  		<b>resgister</b>
+  		<p ng-repeat="registor in activity.registors">
+  			{{registor.code}} -- {{registor.name}} <button ng-click="delRegistor(registor.code)">x</button>
+  		</p>
+
+  		<button ng-click="edit()">EDIT</button>
+
+  </ion-content>
+</ion-view>
+

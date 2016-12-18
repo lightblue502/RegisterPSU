@@ -1,0 +1,14 @@
+<ion-view title="Candidate List" >
+  <ion-content padding="true" class="has-header">
+  	
+  	<div ng-repeat="candidate in candidates">
+  		{{candidate.date | date:"dd/MM/yy HH:mm"}} -- {{candidate.code}} -- {{candidate.name}} <button ng-click="delete(candidate.code)">x</button>
+  	</div>
+
+  	<button ng-click="update()">Update</button>
+
+  </ion-content>
+
+  	
+
+</ion-view>
