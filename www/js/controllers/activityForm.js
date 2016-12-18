@@ -20,11 +20,11 @@ function ($scope, $stateParams, Activity, $window, $state, $ionicHistory) {
 	self.pin = null;
 	self.pinConfirm = null;
 	$scope.activity = activity || INIT_ACTIVITY ;
-	$scope.registor = activity ? activity.registor : INIT_REGISTOR ;
+	$scope.registor = INIT_REGISTOR ;
 
-	$scope.activity = {
-		title :"test Activity", date: new Date(), registors: []
-	}
+	// $scope.activity = {
+	// 	title :"test Activity", date: new Date(), registors: []
+	// }
 
 	$scope.addRegistor = function(){
 		let registor = $scope.registor;

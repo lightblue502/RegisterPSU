@@ -6,7 +6,11 @@
   <ion-content padding="true" class="has-header">
   	
   	<ion-list>
-      <ion-item class="item-divider" ng-repeat="activity in activities" ui-sref="tabsController.activityDetail({id : {{activity.id}}})"> {{activity.title}} : {{activity.date | date:"dd/MM/yy"}}
+      <ion-item class="item-divider" ng-repeat="activity in activities" ui-sref="tabsController.activityDetail({id : {{activity.id}}})"> 
+        <div class="row">
+          <div class="col "><strong>{{activity.title}}</strong></div>
+          <div class="col text-right">{{activity.date | date:"dd/MM/yy"}}</div>
+        </div>
       </ion-item>
     </ion-list>
 

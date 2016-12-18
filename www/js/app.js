@@ -19,7 +19,29 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives
   $rootScope._ = lodash;
 })
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, $rootScope, Activity, $state) {
+  $rootScope.previousState;
+  $rootScope.currentState;
+  $rootScope.$on('$stateChangeSuccess', function(ev, to, toParams, from, fromParams) {
+    console.log('$stateChangeSuccess')
+      $rootScope.previousState = from.name;
+      $rootScope.currentState = to.name;
+  }); 
+
+  $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
+    console.log("fromParams", fromParams);
+    console.log("fromState", fromState);
+    $rootScope.fromState = fromState;
+    if (fromState.name === "tabsController.register") {
+        let pinCode = prompt("กรอกรหัส pin code", "");
+        let activity = Activity.get(fromParams.id);
+        if(pinCode !== activity.pin){
+          event.preventDefault();
+          return $state.go('tabsController.register');
+        }
+    }
+  });
+
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
