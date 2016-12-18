@@ -85,7 +85,12 @@ function ($scope, $stateParams, Activity, $cordovaFile, $cordovaEmailComposer) {
     $scope.exportCSVbyDate = function(date){
     	// console.log(ConvertToCSV(Activity.getByDate(date)))
     	if(date != undefined){
-    		exportCSV(ConvertToCSV(Activity.getByDate(date)))	
+    		var activities = Activity.getByDate(date)
+    		if(_.isEmpty(activities)){
+    			alert("No activities")
+			}else{
+				exportCSV(ConvertToCSV(activities))	
+			}
     	}else {
     		alert("Please choose date")
     	}
