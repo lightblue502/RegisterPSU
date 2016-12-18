@@ -17,10 +17,10 @@ angular.module('app.services', ['app.mocks'])
       activities.splice(activities.indexOf(activity), 1);
     },
     update: function(activityId, key, data){
+   
       activities = _.map(activities, function(activity){
         if(activity.id == activityId){
-          console.log("typeof data " , typeof data)
-          if(typeof data == 'object'){
+          if(_.isArray(data)){
             activity = data;
           }else{
             activity[key] = data;
@@ -29,7 +29,6 @@ angular.module('app.services', ['app.mocks'])
         return activity;
       });
 
-      console.log(activities)
     },
     get: function(activityId) {
       return _.find(activities, function(activity){

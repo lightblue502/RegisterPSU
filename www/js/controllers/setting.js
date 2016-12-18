@@ -12,7 +12,7 @@ function ($scope, $stateParams, Activity, $state) {
 		console.log("--------")
 		Activity.remove(activity);
 		console.log(Activity.all());
-		$state.go('tabsController.activity');
+		$state.go('tabsController.activity', {id : id});
 	}
 
 	$scope.edit = function(){
@@ -20,9 +20,19 @@ function ($scope, $stateParams, Activity, $state) {
 		$state.go('tabsController.editActivity', {id : id});
 	}
 
+	$scope.candidateList = function(){
+		$state.go('tabsController.candidateList', {id: id});
+	}
+
+	$scope.managePin = function(){
+		$state.go('tabsController.managePin', {id: id});
+	}
+
 	function __validatePin(){
 		return $scope.pin === $scope.pinConfirm;
 	}
+
+
 
 
 }])

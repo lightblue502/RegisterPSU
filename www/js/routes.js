@@ -106,6 +106,27 @@ angular.module('app.routes', ['ionicUIRouter'])
     }
   })
 
+  .state('tabsController.candidateList', {
+    url: '/candidate_list/:id',
+    views: {
+      'tab-activity': {
+        templateUrl: 'templates/candidateList.html',
+        controller: 'candidateListCtrl'
+      }
+    }
+  })
+
+  .state('tabsController.managePin', {
+    url: '/manage_pin/:id',
+    views: {
+      'tab-activity': {
+        templateUrl: 'templates/managePin.html',
+        controller: 'managePinCtrl',
+        controllerAs : 'm'
+      }
+    }
+  })
+
   .state('tabsController.setting', {
     url: '/setting/:id',
     views: {

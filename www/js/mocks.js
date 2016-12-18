@@ -6,7 +6,7 @@ module.value('Mock', {
          id: 1,
          pin : "1234",
    		title: "COM 4 - 5 MAJOR",
-   		date: "02-02-2017",
+   		date: moment('25-02-2016', 'DD-MM-yy').format(),
          candidates : [
             {date: moment().format(), code : "5610110206", name : "Thanaporn Nuhwilai"},
             {date: moment().format(), code : "5610110333", name : "Thanaporn Nuhwilai2"},
@@ -23,7 +23,7 @@ module.value('Mock', {
          id: 2,
          pin : "1234",
          title: "DONGYANG",
-         date: "01-02-2017",
+         date: moment('24-02-2016', 'DD-MM-yy').format(),
          candidates : [],
          registors :[
             {code : "5610110206", name : "Thanaporn Nuhwilai"},
@@ -36,7 +36,7 @@ module.value('Mock', {
          id: 3,
          pin : "1234",
          title: "COE activity",
-         date: "01-02-2017",
+         date:  moment('01-02-2016', 'DD-MM-yy').format(),
          candidates : [],
          registors :[
             {code : "5610110206", name : "Thanaporn Nuhwilai"},
