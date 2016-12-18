@@ -1,15 +1,14 @@
-<ion-view title="Activity" cache-view="false" >
+<ion-view title="รายชื่อกิจกรรม" cache-view="false" >
   <!-- <ion-nav-buttons side="right" class="has-header">
     <button class="button button-icon icon ion-android-add" ui-sref="activity_create"
     ></button>
   </ion-nav-buttons> -->
   <ion-content padding="true" class="has-header">
   	
-  	<ul ng-repeat="activity in activities">
-  		<li>
-  			<button ui-sref="tabsController.activityDetail({id : {{activity.id}}})"> {{activity.title}} -- {{activity.date | date:"dd/MM/yy"}} </button>
-  		</li>
-  	</ul>
+  	<ion-list>
+      <ion-item class="item-divider" ng-repeat="activity in activities" ui-sref="tabsController.activityDetail({id : {{activity.id}}})"> {{activity.title}} : {{activity.date | date:"dd/MM/yy"}}
+      </ion-item>
+    </ion-list>
 
   </ion-content>
 </ion-view>

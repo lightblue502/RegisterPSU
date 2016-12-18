@@ -1,7 +1,26 @@
 <ion-view title="Change Pin" >
   <ion-content padding="true" class="has-header">
   	
-	<b>old pin</b>
+  	<div class="list">
+ 		<label class="item item-input">
+	    	<span class="input-label">Old PIN :</span>
+	    	<input type="password" ng-model="m.oldPin">
+  		</label>
+		<label class="item item-input">
+		    <span class="input-label">New PIN :</span>
+		    <input type="password" ng-model="m.pin">
+		</label>
+		<label class="item item-input">
+		    <span class="input-label">Repeat PIN :</span>
+		    <input type="password" ng-model="m.pinConfirm">
+		</label>
+		<div class="row">
+          	<div class="col text-center">
+				<button class="button button-balanced text-center" ng-click=m.changePIN()>Confirm</button>
+			</div>
+		</div>
+	</div>
+	<!-- <b>old pin</b>
 	<input type="password" ng-model="m.oldPin">
 
 	<b>new pin</b>
@@ -9,6 +28,6 @@
 	<input type="password" ng-model="m.pinConfirm">
 
 
-	<button ng-click="m.changePIN()">change pin</button>
+	<button ng-click="m.changePIN()">change pin</button> -->
   </ion-content>
 </ion-view>
