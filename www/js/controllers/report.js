@@ -15,6 +15,8 @@ function ($scope, $stateParams, Activity, $cordovaFile, $cordovaEmailComposer) {
 		obj.title = activity.title
 		return obj
 	})
+
+    console.log($scope.activitiesTitle)
 	self.activity = ''
 
 	function ConvertToCSV(objArray) {
@@ -117,13 +119,16 @@ function ($scope, $stateParams, Activity, $cordovaFile, $cordovaEmailComposer) {
 		// path >> file:///storage/emulated/0/
 	}
 	
-	$cordovaEmailComposer.isAvailable().then(function() {
-	   	// is available
-		  console.log("available");
-		}, function () {
-		// not available
-		alert("not available");
-	});
+    if(ionic.Platform.device().platform == 'Android'){
+        $cordovaEmailComposer.isAvailable().then(function() {
+        // is available
+          console.log("available");
+        }, function () {
+        // not available
+            alert("not available");
+        });
+    }
+	
 	$scope.sendEmailTo = 'joiiremy@gmail.com'
 	$scope.sendEmail = function(sendEmailTo){
 		console.log("================== sendEmail ==================")
